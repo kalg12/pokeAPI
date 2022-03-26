@@ -1,22 +1,25 @@
-import React from 'react'
+import React, { useEffect } from "react";
 
-const Card = ({arregloPokemon}) => {
+export const Card = ({ arregloPokemon }) => {
+  useEffect(() => {
+  }, [arregloPokemon]);
+
   return (
-    {arregloPokemon.map(pokemon => {
-      return (
-      <div className="col">
-      <div className="card h-100">
-        <img src={arregloPokemon.imagen} className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{arregloPokemon.nombre}</h5>
-        </div>
+    <>
+      <div className="container">
+        {arregloPokemon.map((x) => {
+          return (
+            <div className="card" style={{ width: "30rem" }}>
+              <img src={x.imagen} className="card-img-top" alt="..."></img>
+              <div className="card-body">
+                <h5 className="card-title">{x.nombre}</h5>
+              </div>
+            </div>
+          );
+        })}
       </div>
-    </div>
-      )
-    }
-    )
-  }
-  )
-}
+    </>
+  );
+};
 
-export default Card
+export default Card;

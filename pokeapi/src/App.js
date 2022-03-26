@@ -3,39 +3,31 @@ import Navbar from "./components/navbar/Navbar";
 import Card from "./components/card/Card";
 
 function App() {
+    const arregloPokemon = [];
+    const x = 1;
+    const obtenerImagenPokemon = async (x) => {
+      const url = `https://pokeapi.co/api/v2/pokemon/${x}`;
+      const response = await fetch(
+        url
+      );
+      const data = await response.json();
+      const pokemon = {
+        nombre: data.name,
+        imagen: data.sprites.front_default
+      }
+      arregloPokemon.push(pokemon);
+    };
 
-  const arregloPokemon = [];
-
-  const x = 1;
-
-  const obtenerImagenPokemon = async (x) => {
-    const url = `https://pokeapi.co/api/v2/pokemon/${x}`;
-    const response = await fetch(
-      url
-    );
-    const data = await response.json();
-    console.log(data);
-    console.log(data.sprites.front_default)
-    console.log(data.name)
-
-    const pokemon = {
-      nombre: data.name,
-      imagen: data.sprites.front_default
+    for (let i = x; i <= 20; i++) {
+      obtenerImagenPokemon(i);
     }
-    arregloPokemon.push(pokemon);
-  };
 
-  for (let i = x; i <= 20; i++) {
-    obtenerImagenPokemon(i);
+    return (
+      <>
+        <Navbar />
+        <Card arregloPokemon={arregloPokemon} />
+      </>
+    );
   }
-
-  return (
-    <>
-      <Navbar />
-      <Card arregloPokemon={arregloPokemon} />
-
-    </>
-  );
-}
 
 export default App;
