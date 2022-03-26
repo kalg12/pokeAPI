@@ -3,21 +3,24 @@ import React, { useEffect } from "react";
 const Card = ({ arregloPokemon }) => {
 
   useEffect(() => {
-  }, [arregloPokemon]);
+  }, []);
 
   return (
     <>
       <div className="container">
-        {arregloPokemon.map((x) => {
+        {arregloPokemon.map((pokemon, index) => {
           return (
-            <div className="card" style={{ width: "1000 px" }}>
-              <img src={x.imagen} className="card-img-top" alt="..."></img>
-              <div className="card-body">
-                <h5 className="card-title">{x.nombre}</h5>
+            <div className="card" key={index}>
+              <div className="card-image">
+                <img src={pokemon.imagen} alt="pokemon" />
+              </div>
+              <div className="card-content">
+                <span className="card-title">{pokemon.nombre}</span>
               </div>
             </div>
           );
-        })}
+        }
+        )}
       </div>
     </>
   );
