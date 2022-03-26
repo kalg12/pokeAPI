@@ -1,16 +1,21 @@
 import React from 'react'
 
-const Card = (props) => {
+const Card = ({arregloPokemon}) => {
   return (
-    <div className="col">
+    {arregloPokemon.map(pokemon => {
+      return (
+      <div className="col">
       <div className="card h-100">
-        <img src={props.imagen} className="card-img-top" alt="..." />
+        <img src={arregloPokemon.imagen} className="card-img-top" alt="..." />
         <div className="card-body">
-          <h5 className="card-title">{props.nombre}</h5>
-          <p className="card-text">{props.descripcion}</p>
+          <h5 className="card-title">{arregloPokemon.nombre}</h5>
         </div>
       </div>
     </div>
+      )
+    }
+    )
+  }
   )
 }
 

@@ -1,32 +1,39 @@
 import React from "react";
 import Navbar from "./components/navbar/Navbar";
-import Home from "./components/home/Home";
+import Card from "./components/card/Card";
 
 function App() {
 
-  const fetchPokemon = async () => {
+  const arregloPokemon = [];
+
+  const x = 1;
+
+  const obtenerImagenPokemon = async (x) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${x}`;
     const response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon?limit=20"
+      url
     );
     const data = await response.json();
     console.log(data);
+    console.log(data.sprites.front_default)
+    console.log(data.name)
+
+    const pokemon = {
+      nombre: data.name,
+      imagen: data.sprites.front_default
+    }
+    arregloPokemon.push(pokemon);
   };
 
-  const obtenerImagenPokemon = async () => {
-    const response = await fetch(
-      "https://pokeapi.co/api/v2/pokemon/1"
-    );
-    const data = await response.json();
-    console.log(data);
-  };
-
-  fetchPokemon();
-  obtenerImagenPokemon();
+  for (let i = x; i <= 20; i++) {
+    obtenerImagenPokemon(i);
+  }
 
   return (
     <>
       <Navbar />
-      <Home />
+      <Card arregloPokemon={arregloPokemon} />
+
     </>
   );
 }
