@@ -1,22 +1,33 @@
-import React, {useState} from "react";
+import React from "react";
 import Navbar from "./components/navbar/Navbar";
 import Home from "./components/home/Home";
 
 function App() {
-  const [pokemon, setPokemon] = useState([]);
 
-  React.useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=151")
-      .then(response => response.json())
-      .then(data => setPokemon(data.results))
-      .catch(error => console.log(error));
-      console.log(pokemon);
-  }, []);
+  //creamos una funcion para hacer fetch a la api de pokemon
+  const fetchPokemon = async () => {
+    const response = await fetch(
+      "https://pokeapi.co/api/v2/pokemon?limit=20"
+    );
+    const data = await response.json();
+    console.log(data);
+  };
+
+  const obtenerImagenPokemon = async () => {
+    const response = await fetch(
+      "https://pokeapi.co/api/v2/pokemon/1"
+    );
+    const data = await response.json();
+    console.log(data);
+  };
+
+  fetchPokemon();
+  obtenerImagenPokemon();
 
   return (
     <div className="App">
       <Navbar />
-      <Home pokemon={pokemon} />
+      <Home />
     </div>
   );
 }
