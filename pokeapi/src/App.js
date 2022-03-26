@@ -25,10 +25,10 @@ function App() {
   obtenerImagenPokemon();
 
   return (
-    <div className="App">
+    <>
       <Navbar />
       <Home />
-    </div>
+    </>
   );
 }
 
