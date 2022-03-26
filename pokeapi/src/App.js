@@ -4,7 +4,6 @@ import Home from "./components/home/Home";
 
 function App() {
 
-  //creamos una funcion para hacer fetch a la api de pokemon
   const fetchPokemon = async () => {
     const response = await fetch(
       "https://pokeapi.co/api/v2/pokemon?limit=20"
