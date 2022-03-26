@@ -1,0 +1,10 @@
+{
+  "files": {
+    "main.js": "/pokeAPI/static/js/main.921fe5d4.js",
+    "index.html": "/pokeAPI/index.html",
+    "main.921fe5d4.js.map": "/pokeAPI/static/js/main.921fe5d4.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.921fe5d4.js"
+  ]
+}
