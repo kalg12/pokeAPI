@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 
-export const Card = ({ arregloPokemon }) => {
+const Card = ({ arregloPokemon }) => {
+
   useEffect(() => {
   }, [arregloPokemon]);
 
@@ -9,7 +10,7 @@ export const Card = ({ arregloPokemon }) => {
       <div className="container">
         {arregloPokemon.map((x) => {
           return (
-            <div className="card" style={{ width: "30rem" }}>
+            <div className="card" style={{ width: "1000 px" }}>
               <img src={x.imagen} className="card-img-top" alt="..."></img>
               <div className="card-body">
                 <h5 className="card-title">{x.nombre}</h5>
