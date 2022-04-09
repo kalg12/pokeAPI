@@ -18,7 +18,7 @@ function App() {
       arregloPokemon.push(pokemon);
     };
 
-    for (let i = x; i <= 50; i++) {
+    for (let i = x; i <= 40; i++) {
       obtenerImagenPokemon(i);
     }
 

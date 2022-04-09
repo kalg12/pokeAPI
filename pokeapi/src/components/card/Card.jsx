@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 const Card = ({ arregloPokemon }) => {
 
   useEffect(() => {
-  }, []);
+  }, [arregloPokemon]);
 
   return (
     <>
